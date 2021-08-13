@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Inventory {
-    private Integer id;
+    private Integer inventory_id;
     private String category;
     private String description;
 
@@ -15,20 +15,20 @@ public class Inventory {
     }
 
 
-    public Inventory(Integer id, String category, String description) {
-        this.id = id;
+    public Inventory(Integer inventory_id, String category, String description) {
+        this.inventory_id = inventory_id;
         this.category = category;
         this.description = description;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getId() {
-        return id;
+    public Integer getInventory_id() {
+        return inventory_id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setInventory_id(Integer inventory_id) {
+        this.inventory_id = inventory_id;
     }
 
     public String getCategory() {

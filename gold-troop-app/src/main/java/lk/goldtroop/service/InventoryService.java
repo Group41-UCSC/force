@@ -20,11 +20,11 @@ public class InventoryService {
         repo.save(inventory);
     }
 
-    public Inventory get(Integer id){
-        return repo.findById(id).get();
+    public Inventory get(Integer inventory_id){
+        return repo.findById(inventory_id).get();
     }
 
-    public void delete(Integer id){
-        repo.deleteById(id);
+    public void delete(Integer inventory_id){
+        repo.deleteById(inventory_id);
     }
 }
