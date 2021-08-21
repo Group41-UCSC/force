@@ -10,6 +10,7 @@ import 'package:royalscouts/app/core/models/user.dart';
 import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/core/services/user_service.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
+import 'package:royalscouts/app/shared/configs/routes.dart';
 import 'package:royalscouts/app/shared/widgets/styles/buttons.dart';
 
 class TableView extends StatefulWidget {
@@ -162,7 +163,7 @@ class _TableViewState extends State<TableView> {
                         title: 'Add New Task',
                         onClicked: () => Navigator.pushNamed(
                           context,
-                          '/admin/add-task',
+                          Routes.addTask,
                         ),
                         showButton: true,
                         style: primaryButtonStyle,
@@ -183,7 +184,7 @@ class _TableViewState extends State<TableView> {
                     title: 'Add New Task',
                     onClicked: () => Navigator.pushNamed(
                       context,
-                      '/admin/add-task',
+                      Routes.addTask,
                     ),
                     showButton: true,
                     style: primaryButtonStyle,
@@ -195,7 +196,7 @@ class _TableViewState extends State<TableView> {
                       title: 'Edit Task',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/edit-task',
+                        Routes.editTask,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -205,7 +206,7 @@ class _TableViewState extends State<TableView> {
                       title: 'View Task',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/view-task',
+                        Routes.viewTask,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -215,7 +216,7 @@ class _TableViewState extends State<TableView> {
                       title: 'Add Review',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/task-review',
+                        Routes.taskReview,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -224,7 +225,7 @@ class _TableViewState extends State<TableView> {
                     title: 'Provide Feedback',
                     onClicked: () => Navigator.pushNamed(
                       context,
-                      '/admin/task-feedback',
+                      Routes.taskFeedback,
                       arguments: editTaskObj,
                     ),
                     style: primaryButtonStyle,
@@ -240,7 +241,7 @@ class _TableViewState extends State<TableView> {
                         });
                         Navigator.popAndPushNamed(
                           context,
-                          '/admin',
+                          Routes.taskHome,
                         );
                       },
                       style: blackButtonStyle,
@@ -317,7 +318,7 @@ class _TableViewState extends State<TableView> {
                   },
                   primaryKeyName: 'id',
                 ),
-                horizontalMargin: 80,
+                horizontalMargin: 50,
                 onRowsPerPageChanged: (rowsPerPage) {
                   setState(() {
                     if (rowsPerPage != null) {

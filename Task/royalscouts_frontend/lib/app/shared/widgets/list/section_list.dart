@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:royalscouts/app/shared/widgets/nav_link.dart';
+import 'package:royalscouts/app/shared/widgets/elements/nav_link.dart';
 
 class SectionList extends StatefulWidget {
   final List<String> texts;

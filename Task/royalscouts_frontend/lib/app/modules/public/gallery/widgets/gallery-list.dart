@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:royalscouts/app/modules/public/gallery/data/gallery-data.dart';
 import 'package:royalscouts/app/modules/public/gallery/models/gallery-model.dart';
-import 'package:royalscouts/app/shared/widgets/nav_link.dart';
+import 'package:royalscouts/app/shared/widgets/elements/nav_link.dart';
 
 class GalleryList extends StatefulWidget {
   GalleryList({Key? key}) : super(key: key);

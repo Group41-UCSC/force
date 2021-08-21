@@ -41,12 +41,12 @@ class NewsTile extends StatelessWidget {
             child: ReadMoreText(
               newsData.newsBody,
               trimLines: 3,
-              colorClickableText: Colors.blue[200],
+              colorClickableText: Colors.blueGrey[200],
               trimMode: TrimMode.Line,
               trimCollapsedText: 'Read more',
               trimExpandedText: 'Show less',
               moreStyle: TextStyle(
-                color: Colors.blue[200],
+                color: Colors.blueGrey[200],
               ),
             ),
           ),

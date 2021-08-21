@@ -53,7 +53,7 @@ class _TextInputFieldState extends State<TextInputField> {
               ),
               Expanded(
                 child: Container(
-                  color: isEmpty ? Colors.white : Colors.blue[50],
+                  color: isEmpty ? Colors.white : Colors.blueGrey[50],
                   child: TextFormField(
                     controller: widget.controller,
                     readOnly: widget.disable,
@@ -73,18 +73,18 @@ class _TextInputFieldState extends State<TextInputField> {
                       contentPadding: EdgeInsets.all(10.0),
                       border: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Colors.blue[50] ?? Colors.blue,
+                          color: Colors.blueGrey[50] ?? Colors.blueGrey,
                         ),
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: Colors.blue[50] ?? Colors.blue,
+                          color: Colors.blueGrey[50] ?? Colors.blueGrey,
                         ),
                         borderRadius: BorderRadius.circular(5.0),
                       ),
                       hintText: "${widget.content}",
-                      fillColor: Colors.blue[50],
+                      fillColor: Colors.blueGrey[50],
                     ),
                   ),
                 ),

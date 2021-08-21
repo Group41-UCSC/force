@@ -63,7 +63,7 @@ class _DropdownFieldState extends State<DropdownField> {
                 ),
                 Expanded(
                   child: Container(
-                    color: Colors.blue[50],
+                    color: Colors.blueGrey[50],
                     child: DropdownButtonFormField<dynamic>(
                       value: currentValue,
                       iconSize: 24,
@@ -78,17 +78,17 @@ class _DropdownFieldState extends State<DropdownField> {
                         contentPadding: EdgeInsets.all(10.0),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.blue[50] ?? Colors.blue,
+                            color: Colors.blueGrey[50] ?? Colors.blueGrey,
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: Colors.blue[50] ?? Colors.blue,
+                            color: Colors.blueGrey[50] ?? Colors.blueGrey,
                           ),
                           borderRadius: BorderRadius.circular(5.0),
                         ),
-                        fillColor: Colors.blue[50],
+                        fillColor: Colors.blueGrey[50],
                         filled: true,
                       ),
                       items: widget.contents

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:royalscouts/app/core/models/task.dart';
-import 'package:royalscouts/app/modules/admin/crud_task/widgets/duration_field.dart';
-import 'package:royalscouts/app/modules/admin/crud_task/widgets/origin_radio_field.dart';
+import 'package:royalscouts/app/modules/admin/task_module/crud_task/widgets/duration_field.dart';
+import 'package:royalscouts/app/modules/admin/task_module/crud_task/widgets/origin_radio_field.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_card.dart';
 import 'package:royalscouts/app/shared/widgets/elements/dropdown_field.dart';
 import 'package:royalscouts/app/shared/widgets/elements/number_input_field.dart';
@@ -249,7 +249,7 @@ class _MainTabState extends State<MainTab> {
                                       width: 120,
                                       color: isScoreEmpty
                                           ? Colors.white
-                                          : Colors.blue[50],
+                                          : Colors.blueGrey[50],
                                       child: Form(
                                         key: _scoreFormKey,
                                         child: TextFormField(
@@ -273,22 +273,22 @@ class _MainTabState extends State<MainTab> {
                                             contentPadding: EdgeInsets.all(10.0),
                                             border: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Colors.blue[50] ??
-                                                    Colors.blue,
+                                                color: Colors.blueGrey[50] ??
+                                                    Colors.blueGrey,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(5.0),
                                             ),
                                             enabledBorder: OutlineInputBorder(
                                               borderSide: BorderSide(
-                                                color: Colors.blue[50] ??
-                                                    Colors.blue,
+                                                color: Colors.blueGrey[50] ??
+                                                    Colors.blueGrey,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(5.0),
                                             ),
                                             hintText: "0",
-                                            fillColor: Colors.blue[50],
+                                            fillColor: Colors.blueGrey[50],
                                           ),
                                         ),
                                       ),

@@ -32,7 +32,7 @@ class CustomCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
-        elevation: 5.0,
+        elevation: 1.5,
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -59,7 +59,7 @@ class CustomCard extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(
                     Icons.edit,
-                    color: Colors.grey,
+                    color: Colors.blueGrey,
                     size: 15,
                   ),
                   onPressed: onEdit,
@@ -72,7 +72,7 @@ class CustomCard extends StatelessWidget {
                 child: IconButton(
                   icon: Icon(
                     Icons.close,
-                    color: Colors.grey,
+                    color: Colors.blueGrey,
                     size: 15,
                   ),
                   onPressed: onClosed,

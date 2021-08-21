@@ -18,7 +18,7 @@ class LabelField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: Colors.blue[50],
+        color: Colors.blueGrey[50],
         child: TextFormField(
           autofocus: false,
           initialValue: value,
@@ -33,11 +33,11 @@ class LabelField extends StatelessWidget {
             contentPadding: EdgeInsets.all(10.0),
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                color: Colors.blue[50] ?? Colors.blue,
+                color: Colors.blueGrey[50] ?? Colors.blueGrey,
               ),
               borderRadius: BorderRadius.circular(5.0),
             ),
-            fillColor: Colors.blue[50],
+            fillColor: Colors.blueGrey[50],
             labelText: labelText,
             alignLabelWithHint: true,
             hintStyle: TextStyle(color: CustomColor.primary),

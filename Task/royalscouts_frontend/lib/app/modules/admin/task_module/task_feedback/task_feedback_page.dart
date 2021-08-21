@@ -246,7 +246,9 @@ class _TaskFeedbackPageState extends State<TaskFeedbackPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Task Feedback'),
+        elevation: 1,
       ),
+      backgroundColor: CustomColor.background,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20),

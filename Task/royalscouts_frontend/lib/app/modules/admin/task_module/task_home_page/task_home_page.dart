@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web_data_table/web_data_table.dart';
 import 'package:royalscouts/app/core/models/task.dart';
 import 'package:royalscouts/app/core/services/task_service.dart';
-import 'package:royalscouts/app/modules/admin/admin_home/widgets/table_view.dart';
+import 'package:royalscouts/app/modules/admin/task_module/task_home_page/widgets/table_view.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
 import 'package:royalscouts/app/shared/configs/dropdown_data.dart';
 import 'package:royalscouts/app/shared/widgets/elements/dropdown_filter.dart';
 
-class HomeTab extends StatefulWidget {
-  const HomeTab({Key? key}) : super(key: key);
+class TaskHomePage extends StatefulWidget {
+  const TaskHomePage({Key? key}) : super(key: key);
 
   @override
-  _HomeTabState createState() => _HomeTabState();
+  _TaskHomePageState createState() => _TaskHomePageState();
 }
 
-class _HomeTabState extends State<HomeTab> {
+class _TaskHomePageState extends State<TaskHomePage> {
   List<Map<String, dynamic>> data = [];
 
   final _pTypeFilterController = TextEditingController();
@@ -100,46 +100,41 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
-      child: Center(
-        child: TableView(
-          data: data,
-          filterTexts: getFilter(),
-          onDelete: getTasks,
-          columns: columns,
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(top: 25.0),
-              child: Text(
-                "Filters: ",
-                textAlign: TextAlign.left,
-                style: TextStyle(color: CustomColor.primary, fontSize: 14),
-              ),
-            ),
-            DropdownFilter(
-              title: 'Select a task type',
-              filters: programmeTypes,
-              controller: _pTypeFilterController,
-              callback: () {
-                setState(() {
-                  pTypeFilter = _pTypeFilterController.text;
-                });
-              },
-            ),
-            DropdownFilter(
-              title: 'Select a status',
-              filters: statusTypes,
-              controller: _statusFilterController,
-              callback: () {
-                setState(() {
-                  statusFilter = _statusFilterController.text;
-                });
-              },
-            ),
-          ],
+    return TableView(
+      data: data,
+      filterTexts: getFilter(),
+      onDelete: getTasks,
+      columns: columns,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.only(top: 25.0),
+          child: Text(
+            "Filters: ",
+            textAlign: TextAlign.left,
+            style: TextStyle(color: CustomColor.primary, fontSize: 14),
+          ),
         ),
-      ),
+        DropdownFilter(
+          title: 'Select a task type',
+          filters: programmeTypes,
+          controller: _pTypeFilterController,
+          callback: () {
+            setState(() {
+              pTypeFilter = _pTypeFilterController.text;
+            });
+          },
+        ),
+        DropdownFilter(
+          title: 'Select a status',
+          filters: statusTypes,
+          controller: _statusFilterController,
+          callback: () {
+            setState(() {
+              statusFilter = _statusFilterController.text;
+            });
+          },
+        ),
+      ],
     );
   }
 }

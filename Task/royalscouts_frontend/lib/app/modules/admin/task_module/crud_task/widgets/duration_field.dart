@@ -52,7 +52,7 @@ class _DurationFieldState extends State<DurationField> {
                           right: 8.0,
                         ),
                         child: Container(
-                          color: isDayEmpty ? Colors.white : Colors.blue[50],
+                          color: isDayEmpty ? Colors.white : Colors.blueGrey[50],
                           child: TextFormField(
                             controller: widget.dayController,
                             keyboardType: TextInputType.number,
@@ -78,18 +78,18 @@ class _DurationFieldState extends State<DurationField> {
                               contentPadding: EdgeInsets.all(10.0),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               hintText: "00 days",
-                              fillColor: Colors.blue[50],
+                              fillColor: Colors.blueGrey[50],
                             ),
                           ),
                         ),
@@ -101,7 +101,7 @@ class _DurationFieldState extends State<DurationField> {
                           right: 8.0,
                         ),
                         child: Container(
-                          color: isHourEmpty ? Colors.white : Colors.blue[50],
+                          color: isHourEmpty ? Colors.white : Colors.blueGrey[50],
                           child: TextFormField(
                             controller: widget.hourController,
                             keyboardType: TextInputType.number,
@@ -127,18 +127,18 @@ class _DurationFieldState extends State<DurationField> {
                               contentPadding: EdgeInsets.all(10.0),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               hintText: "00 hours",
-                              fillColor: Colors.blue[50],
+                              fillColor: Colors.blueGrey[50],
                             ),
                           ),
                         ),
@@ -150,7 +150,7 @@ class _DurationFieldState extends State<DurationField> {
                           right: 0.0,
                         ),
                         child: Container(
-                          color: isMinEmpty ? Colors.white : Colors.blue[50],
+                          color: isMinEmpty ? Colors.white : Colors.blueGrey[50],
                           child: TextFormField(
                             controller: widget.minController,
                             keyboardType: TextInputType.number,
@@ -176,18 +176,18 @@ class _DurationFieldState extends State<DurationField> {
                               contentPadding: EdgeInsets.all(10.0),
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                  color: Colors.blue[50] ?? Colors.blue,
+                                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                                 ),
                                 borderRadius: BorderRadius.circular(5.0),
                               ),
                               hintText: "00 mins",
-                              fillColor: Colors.blue[50],
+                              fillColor: Colors.blueGrey[50],
                             ),
                           ),
                         ),
