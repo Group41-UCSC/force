@@ -7,52 +7,52 @@ import javax.persistence.Id;
 
 @Entity
 public class Permission {
-    private Integer permission_id;
-    private String permission_title;
-    private String permission_description;
-    private String permission_script;
+    private Integer permissionId;
+    private String permissionTitle;
+    private String permissionDescription;
+    private String permissionScript;
 
     public Permission() {
     }
 
-    public Permission(Integer permission_id, String permission_title, String permission_description, String permission_script) {
-        this.permission_id = permission_id;
-        this.permission_title = permission_title;
-        this.permission_description = permission_description;
-        this.permission_script = permission_script;
+    public Permission(Integer permissionId, String permissionTitle, String permissionDescription, String permissionScript) {
+        this.permissionId = permissionId;
+        this.permissionTitle = permissionTitle;
+        this.permissionDescription = permissionDescription;
+        this.permissionScript = permissionScript;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getPermission_id() {
-        return permission_id;
+    public Integer getPermissionId() {
+        return permissionId;
     }
 
-    public void setPermission_id(Integer permission_id) {
-        this.permission_id = permission_id;
+    public void setPermissionId(Integer permissionId) {
+        this.permissionId = permissionId;
     }
 
-    public String getPermission_title() {
-        return permission_title;
+    public String getPermissionTitle() {
+        return permissionTitle;
     }
 
-    public void setPermission_title(String permission_title) {
-        this.permission_title = permission_title;
+    public void setPermissionTitle(String permissionTitle) {
+        this.permissionTitle = permissionTitle;
     }
 
-    public String getPermission_description() {
-        return permission_description;
+    public String getPermissionDescription() {
+        return permissionDescription;
     }
 
-    public void setPermission_description(String permission_description) {
-        this.permission_description = permission_description;
+    public void setPermissionDescription(String permissionDescription) {
+        this.permissionDescription = permissionDescription;
     }
 
-    public String getPermission_script() {
-        return permission_script;
+    public String getPermissionScript() {
+        return permissionScript;
     }
 
-    public void setPermission_script(String permission_script) {
-        this.permission_script = permission_script;
+    public void setPermissionScript(String permissionScript) {
+        this.permissionScript = permissionScript;
     }
 }

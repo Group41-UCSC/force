@@ -1,118 +1,119 @@
 package net.codejava.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.jpa.repository.Query;
+
+import javax.persistence.*;
 
 @Entity
+//@NamedQuery(name= "Item.findByItemSearch",
+//        query= "SELECT * FROM Item  WHERE CONCAT(item.item_id, item.item_name, item.item_source, item.item_status, item.item_lifespan,item.item_build) LIKE '%ca%'")
 public class Item {
-    private Integer item_id;
-    private String item_name;
-    private String item_source;
-    private Integer inventory_id;
-    private Integer item_quantity;
-    private Float item_lifespan;
-    private Float item_price;
-    private String item_build;
+    private Integer itemId;
+    private String itemName;
+    private String itemSource;
+    private Integer inventoryId;
+    private Integer itemQuantity;
+    private Float itemLifespan;
+    private Float itemPrice;
+    private String itemBuild;
     private String itemStatus;
-    private String item_description;
+    private String itemDescription;
 
     public Item() {
     }
 
-    public Item(Integer item_id, String item_name, String item_source, Integer inventory_id, Integer item_quantity, Float item_lifespan, Float item_price, String item_build, String itemStatus, String item_description) {
-        this.item_id = item_id;
-        this.item_name = item_name;
-        this.item_source = item_source;
-        this.inventory_id = inventory_id;
-        this.item_quantity = item_quantity;
-        this.item_lifespan = item_lifespan;
-        this.item_price = item_price;
-        this.item_build = item_build;
+    public Item(Integer itemId, String itemName, String itemSource, Integer inventoryId, Integer itemQuantity, Float itemLifespan, Float itemPrice, String itemBuild, String itemStatus, String itemDescription) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemSource = itemSource;
+        this.inventoryId = inventoryId;
+        this.itemQuantity = itemQuantity;
+        this.itemLifespan = itemLifespan;
+        this.itemPrice = itemPrice;
+        this.itemBuild = itemBuild;
         this.itemStatus = itemStatus;
-        this.item_description = item_description;
+        this.itemDescription = itemDescription;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getItem_id() {
-        return item_id;
+    public Integer getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(Integer item_id) {
-        this.item_id = item_id;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
-    public String getItem_name() {
-        return item_name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setItem_name(String item_name) {
-        this.item_name = item_name;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public String getItem_source() {
-        return item_source;
+    public String getItemSource() {
+        return itemSource;
     }
 
-    public void setItem_source(String item_source) {
-        this.item_source = item_source;
+    public void setItemSource(String itemSource) {
+        this.itemSource = itemSource;
     }
 
-    public Integer getInventory_id() {
-        return inventory_id;
+    public Integer getInventoryId() {
+        return inventoryId;
     }
 
-    public void setInventory_id(Integer inventory_id) {
-        this.inventory_id = inventory_id;
+    public void setInventoryId(Integer inventoryId) {
+        this.inventoryId = inventoryId;
     }
 
-    public Integer getItem_quantity() {
-        return item_quantity;
+    public Integer getItemQuantity() {
+        return itemQuantity;
     }
 
-    public void setItem_quantity(Integer item_quantity) {
-        this.item_quantity = item_quantity;
+    public void setItemQuantity(Integer itemQuantity) {
+        this.itemQuantity = itemQuantity;
     }
 
-    public Float getItem_lifespan() {
-        return item_lifespan;
+    public Float getItemLifespan() {
+        return itemLifespan;
     }
 
-    public void setItem_lifespan(Float item_lifespan) {
-        this.item_lifespan = item_lifespan;
+    public void setItemLifespan(Float itemLifespan) {
+        this.itemLifespan = itemLifespan;
     }
 
-    public Float getItem_price() {
-        return item_price;
+    public Float getItemPrice() {
+        return itemPrice;
     }
 
-    public void setItem_price(Float item_price) {
-        this.item_price = item_price;
+    public void setItemPrice(Float itemPrice) {
+        this.itemPrice = itemPrice;
     }
 
-    public String getItem_build() {
-        return item_build;
+    public String getItemBuild() {
+        return itemBuild;
     }
 
-    public void setItem_build(String item_build) {
-        this.item_build = item_build;
+    public void setItemBuild(String itemBuild) {
+        this.itemBuild = itemBuild;
     }
 
-    public String getItem_status() {
+    public String getItemStatus() {
         return itemStatus;
     }
 
-    public void setItem_status(String item_status) {
-        this.itemStatus = item_status;
+    public void setItemStatus(String itemStatus) {
+        this.itemStatus = itemStatus;
     }
 
-    public String getItem_description() {
-        return item_description;
+    public String getItemDescription() {
+        return itemDescription;
     }
 
-    public void setItem_description(String item_description) {
-        this.item_description = item_description;
+    public void setItemDescription(String itemDescription) {
+        this.itemDescription = itemDescription;
     }
 }
