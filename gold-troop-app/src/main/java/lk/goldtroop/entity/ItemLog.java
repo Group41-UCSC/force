@@ -7,82 +7,82 @@ import javax.persistence.Id;
 
 @Entity
 public class ItemLog {
-    private Integer itemlog_id;
-    private Integer item_id;
-    private String itemlog_issuedto;
-    private Integer itemlog_quantity;
-    private String itemlog_status;
-    private String itemlog_purpose;
-    private String itemlog_remarks;
+    private Integer itemlogId;
+    private Integer itemId;
+    private String itemlogIssuedto;
+    private Integer itemlogQuantity;
+    private String itemlogStatus;
+    private String itemlogPurpose;
+    private String itemlogRemarks;
 
     public ItemLog() {
     }
 
-    public ItemLog(Integer itemlog_id, Integer item_id, String itemlog_issuedto, Integer itemlog_quantity, String itemlog_status, String itemlog_purpose, String itemlog_remarks) {
-        this.itemlog_id = itemlog_id;
-        this.item_id = item_id;
-        this.itemlog_issuedto = itemlog_issuedto;
-        this.itemlog_quantity = itemlog_quantity;
-        this.itemlog_status = itemlog_status;
-        this.itemlog_purpose = itemlog_purpose;
-        this.itemlog_remarks = itemlog_remarks;
+    public ItemLog(Integer itemlogId, Integer itemId, String itemlogIssuedto, Integer itemlogQuantity, String itemlogStatus, String itemlogPurpose, String itemlogRemarks) {
+        this.itemlogId = itemlogId;
+        this.itemId = itemId;
+        this.itemlogIssuedto = itemlogIssuedto;
+        this.itemlogQuantity = itemlogQuantity;
+        this.itemlogStatus = itemlogStatus;
+        this.itemlogPurpose = itemlogPurpose;
+        this.itemlogRemarks = itemlogRemarks;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer getItemlog_id() {
-        return itemlog_id;
+    public Integer getItemlogId() {
+        return itemlogId;
     }
 
-    public void setItemlog_id(Integer itemlog_id) {
-        this.itemlog_id = itemlog_id;
+    public void setItemlogId(Integer itemlogId) {
+        this.itemlogId = itemlogId;
     }
 
-    public Integer getItem_id() {
-        return item_id;
+    public Integer getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(Integer item_id) {
-        this.item_id = item_id;
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
     }
 
-    public String getItemlog_issuedto() {
-        return itemlog_issuedto;
+    public String getItemlogIssuedto() {
+        return itemlogIssuedto;
     }
 
-    public void setItemlog_issuedto(String itemlog_issuedto) {
-        this.itemlog_issuedto = itemlog_issuedto;
+    public void setItemlogIssuedto(String itemlogIssuedto) {
+        this.itemlogIssuedto = itemlogIssuedto;
     }
 
-    public Integer getItemlog_quantity() {
-        return itemlog_quantity;
+    public Integer getItemlogQuantity() {
+        return itemlogQuantity;
     }
 
-    public void setItemlog_quantity(Integer itemlog_quantity) {
-        this.itemlog_quantity = itemlog_quantity;
+    public void setItemlogQuantity(Integer itemlogQuantity) {
+        this.itemlogQuantity = itemlogQuantity;
     }
 
-    public String getItemlog_status() {
-        return itemlog_status;
+    public String getItemlogStatus() {
+        return itemlogStatus;
     }
 
-    public void setItemlog_status(String itemlog_status) {
-        this.itemlog_status = itemlog_status;
+    public void setItemlogStatus(String itemlogStatus) {
+        this.itemlogStatus = itemlogStatus;
     }
 
-    public String getItemlog_purpose() {
-        return itemlog_purpose;
+    public String getItemlogPurpose() {
+        return itemlogPurpose;
     }
 
-    public void setItemlog_purpose(String itemlog_purpose) {
-        this.itemlog_purpose = itemlog_purpose;
+    public void setItemlogPurpose(String itemlogPurpose) {
+        this.itemlogPurpose = itemlogPurpose;
     }
 
-    public String getItemlog_remarks() {
-        return itemlog_remarks;
+    public String getItemlogRemarks() {
+        return itemlogRemarks;
     }
 
-    public void setItemlog_remarks(String itemlog_remarks) {
-        this.itemlog_remarks = itemlog_remarks;
+    public void setItemlogRemarks(String itemlogRemarks) {
+        this.itemlogRemarks = itemlogRemarks;
     }
 }
