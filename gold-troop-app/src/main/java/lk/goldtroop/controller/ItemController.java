@@ -20,10 +20,13 @@ public class ItemController {
         return service.listAll();
     }
 
-    @GetMapping("/items/category/{itemStatus}")
-    public List<Item> findItemStatus(@PathVariable (value="itemStatus") String itemStatus){
-            return service.getItemStatus(itemStatus);
-
+    @GetMapping("/items/category/{item_status}")
+    public List<Item> findItemStatus(@PathVariable (value="item_status") String item_status){
+            return service.getItemStatus(item_status);
+    }
+    @GetMapping("items/search/{keyword}")
+    public List<Item> findByKeyword(@PathVariable String keyword){
+        return service.getByKeyword(keyword);
     }
 
     @GetMapping("/items/{item_id}")
@@ -47,15 +50,15 @@ public class ItemController {
     public ResponseEntity<?> update(@RequestBody Item item, @PathVariable Integer item_id){
         try {
             Item existItem= service.get(item_id);
-            existItem.setItem_name(item.getItem_name());
-            existItem.setItem_source(item.getItem_source());
-            existItem.setInventory_id(item.getInventory_id());
-            existItem.setItem_quantity(item.getItem_quantity());
-            existItem.setItem_lifespan(item.getItem_lifespan());
-            existItem.setItem_price(item.getItem_price());
-            existItem.setItem_build(item.getItem_build());
-            existItem.setItem_status(item.getItem_status());
-            existItem.setItem_description(item.getItem_description());
+            existItem.setItemName(item.getItemName());
+            existItem.setItemSource(item.getItemSource());
+            existItem.setInventoryId(item.getInventoryId());
+            existItem.setItemQuantity(item.getItemQuantity());
+            existItem.setItemLifespan(item.getItemLifespan());
+            existItem.setItemPrice(item.getItemPrice());
+            existItem.setItemBuild(item.getItemBuild());
+            existItem.setItemStatus(item.getItemStatus());
+            existItem.setItemDescription(item.getItemDescription());
             service.save(existItem);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (NoSuchElementException e){

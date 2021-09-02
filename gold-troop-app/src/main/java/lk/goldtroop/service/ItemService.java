@@ -17,8 +17,11 @@ public class ItemService {
         return repo.findAll();
     }
 
-    public List<Item> getItemStatus(String itemStatus){
-            return repo.findByItemStatus(itemStatus);
+    public List<Item> getItemStatus(String item_status){
+            return repo.findByItemStatus(item_status);
+    }
+    public List<Item> getByKeyword(String keyword){
+        return repo.findByKeyword(keyword);
     }
 
 
