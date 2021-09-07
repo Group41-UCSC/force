@@ -100,39 +100,53 @@ class _TaskHomePageState extends State<TaskHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return TableView(
-      data: data,
-      filterTexts: getFilter(),
-      onDelete: getTasks,
-      columns: columns,
-      actions: [
+    return ListView(
+      children: [
         Padding(
-          padding: const EdgeInsets.only(top: 25.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           child: Text(
-            "Filters: ",
-            textAlign: TextAlign.left,
-            style: TextStyle(color: CustomColor.primary, fontSize: 14),
+            "Task Home",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ),
-        DropdownFilter(
-          title: 'Select a task type',
-          filters: programmeTypes,
-          controller: _pTypeFilterController,
-          callback: () {
-            setState(() {
-              pTypeFilter = _pTypeFilterController.text;
-            });
-          },
-        ),
-        DropdownFilter(
-          title: 'Select a status',
-          filters: statusTypes,
-          controller: _statusFilterController,
-          callback: () {
-            setState(() {
-              statusFilter = _statusFilterController.text;
-            });
-          },
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: TableView(
+            data: data,
+            filterTexts: getFilter(),
+            onDelete: getTasks,
+            columns: columns,
+            actions: [
+              Padding(
+                padding: const EdgeInsets.only(top: 25.0),
+                child: Text(
+                  "Filters: ",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: CustomColor.primary, fontSize: 14),
+                ),
+              ),
+              DropdownFilter(
+                title: 'Select a task type',
+                filters: programmeTypes,
+                controller: _pTypeFilterController,
+                callback: () {
+                  setState(() {
+                    pTypeFilter = _pTypeFilterController.text;
+                  });
+                },
+              ),
+              DropdownFilter(
+                title: 'Select a status',
+                filters: statusTypes,
+                controller: _statusFilterController,
+                callback: () {
+                  setState(() {
+                    statusFilter = _statusFilterController.text;
+                  });
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );

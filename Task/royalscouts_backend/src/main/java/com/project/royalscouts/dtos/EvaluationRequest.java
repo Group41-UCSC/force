@@ -1,30 +1,18 @@
-package com.project.royalscouts.models;
+package com.project.royalscouts.dtos;
 
-import javax.persistence.*;
+public class EvaluationRequest {
 
-@Entity
-@Table(name = "evaluations")
-public class Evaluation extends AuditModel {
-
-  @Column(name = "title")
   private String title;
 
-  @Column(name = "task_id")
   private Long taskId;
 
-  @Column(name = "start_date")
   private String startDate;
 
-  @Column(name = "end_date")
   private String endDate;
 
-  @Column(name = "version")
-  private Double version;
-
-  @Column(name = "created_by")
   private String createdBy;
 
-  public Evaluation() {
+  public EvaluationRequest() {
   }
 
   public String getTitle() {
@@ -57,14 +45,6 @@ public class Evaluation extends AuditModel {
 
   public void setEndDate(String endDate) {
     this.endDate = endDate;
-  }
-
-  public Double getVersion() {
-    return version;
-  }
-
-  public void setVersion(Double version) {
-    this.version = version;
   }
 
   public String getCreatedBy() {

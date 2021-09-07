@@ -137,7 +137,7 @@ class _TableViewState extends State<TableView> {
     return SingleChildScrollView(
       child: widget.data.length == 0 && showLoader
           ? Container(
-              color: Colors.white,
+              color: Colors.transparent,
               width: 300.0,
               height: 300.0,
               child: SpinKitRing(
@@ -318,7 +318,7 @@ class _TableViewState extends State<TableView> {
                   },
                   primaryKeyName: 'id',
                 ),
-                horizontalMargin: 50,
+                horizontalMargin: 30,
                 onRowsPerPageChanged: (rowsPerPage) {
                   setState(() {
                     if (rowsPerPage != null) {

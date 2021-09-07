@@ -17,11 +17,6 @@ class _AdminDashboardState extends State<AdminDashboard> {
     TaskEvaluationPage(),
   ];
 
-  List<String> viewTitles = const [
-    "Task Home",
-    "Task Evaluation",
-  ];
-
   /// The currently selected index of the bar
   int selectedIndex = 0;
 
@@ -57,20 +52,9 @@ class _AdminDashboardState extends State<AdminDashboard> {
             },
           ),
           Expanded(
-            child: ListView(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    viewTitles[selectedIndex],
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-                  child: views.elementAt(selectedIndex),
-                ),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+              child: views.elementAt(selectedIndex),
             ),
           ),
         ],

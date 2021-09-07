@@ -267,7 +267,7 @@ class _InstructionsTabState extends State<InstructionsTab> {
 
                                     Navigator.pushNamedAndRemoveUntil(
                                       context,
-                                      Routes.taskHome,
+                                      Routes.adminDashboard,
                                       (route) => false,
                                     );
                                   } else {
