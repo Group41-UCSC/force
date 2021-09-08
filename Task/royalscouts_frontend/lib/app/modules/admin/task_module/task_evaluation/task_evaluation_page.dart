@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/intl.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
@@ -183,89 +182,92 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-            ElevatedButton(
-              style: primaryButtonStyle,
-              child: Text(
-                'Add Evaluation',
-                style: TextStyle(
-                  color: Colors.white,
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: ElevatedButton(
+                style: primaryButtonStyle,
+                child: Text(
+                  'Add Evaluation',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return CustomDialog(
-                        child: CustomCard(
-                          title: 'Add Evaluation',
-                          height: 480,
-                          enableCloseButton: true,
-                          onClosed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.all(25),
-                            child: Form(
-                              key: _evaluationFormKey,
-                              child: Column(
-                                children: <Widget>[
-                                  TextInputField(
-                                    label: "Title",
-                                    controller: _titleController,
-                                  ),
-                                  DropdownField(
-                                    label: "Task Id",
-                                    contents: ["1", "2", "3"],
-                                    controller: _taskIdController,
-                                  ),
-                                  TextInputField(
-                                    label: "Start Date",
-                                    controller: _startDateController,
-                                  ),
-                                  TextInputField(
-                                    label: "End Date",
-                                    controller: _endDateController,
-                                  ),
-                                  TextInputField(
-                                    label: "Version",
-                                    controller: _versionController,
-                                    content: "v1.0",
-                                    disable: true,
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 30.0),
-                                    child: ElevatedButton(
-                                      style: primaryButtonStyle,
-                                      onPressed: () async {
-                                        if (_evaluationFormKey.currentState!
-                                            .validate()) {
-                                          Map<String, dynamic> evaluation = {
-                                            'taskId': _taskIdController.text,
-                                            'title': _titleController.text,
-                                            'startDate':
-                                                _startDateController.text,
-                                            'endDate': _endDateController.text,
-                                            'createdBy':
-                                                UserService.currentUser.name,
-                                          };
-
-                                          await EvaluationService()
-                                              .addEvaluation(evaluation);
-                                          Navigator.pop(context);
-                                          updateForm();
-                                        }
-                                      },
-                                      child: Text('Submit New Evaluation'),
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return CustomDialog(
+                          child: CustomCard(
+                            title: 'Add Evaluation',
+                            height: 480,
+                            enableCloseButton: true,
+                            onClosed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(25),
+                              child: Form(
+                                key: _evaluationFormKey,
+                                child: Column(
+                                  children: <Widget>[
+                                    TextInputField(
+                                      label: "Title",
+                                      controller: _titleController,
                                     ),
-                                  ),
-                                ],
+                                    DropdownField(
+                                      label: "Task Id",
+                                      contents: ["1", "2", "3"],
+                                      controller: _taskIdController,
+                                    ),
+                                    TextInputField(
+                                      label: "Start Date",
+                                      controller: _startDateController,
+                                    ),
+                                    TextInputField(
+                                      label: "End Date",
+                                      controller: _endDateController,
+                                    ),
+                                    TextInputField(
+                                      label: "Version",
+                                      controller: _versionController,
+                                      content: "v1.0",
+                                      disable: true,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 30.0),
+                                      child: ElevatedButton(
+                                        style: primaryButtonStyle,
+                                        onPressed: () async {
+                                          if (_evaluationFormKey.currentState!
+                                              .validate()) {
+                                            Map<String, dynamic> evaluation = {
+                                              'taskId': _taskIdController.text,
+                                              'title': _titleController.text,
+                                              'startDate':
+                                                  _startDateController.text,
+                                              'endDate': _endDateController.text,
+                                              'createdBy':
+                                                  UserService.currentUser.name,
+                                            };
+
+                                            await EvaluationService()
+                                                .addEvaluation(evaluation);
+                                            Navigator.pop(context);
+                                            updateForm();
+                                          }
+                                        },
+                                        child: Text('Submit New Evaluation'),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      );
-                    });
-              },
+                        );
+                      });
+                },
+              ),
             )
           ],
         ),

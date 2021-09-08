@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:royalscouts/app/core/models/evaluation.dart';
-import 'package:royalscouts/app/core/models/evaluation.dart';
 
 class EvaluationService {
   final String apiUrl = "http://localhost:8080/api/v1/evaluations";

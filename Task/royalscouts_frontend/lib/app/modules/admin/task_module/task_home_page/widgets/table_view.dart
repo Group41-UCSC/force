@@ -73,15 +73,16 @@ class _TableViewState extends State<TableView> {
             _selectedRowKeys.length == 1 &&
             !showButton
         ? Padding(
-            padding: const EdgeInsets.only(bottom: 15.0, right: 8.0, top: 10.0),
+            padding: const EdgeInsets.only(bottom: 15.0, right: 4.0, top: 10.0),
             child: SizedBox(
-              height: 35,
+              height: 32,
               child: ElevatedButton(
                 style: style,
                 child: Text(
                   title,
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 12
                   ),
                 ),
                 onPressed: () {
@@ -127,7 +128,7 @@ class _TableViewState extends State<TableView> {
       setState(() {});
       Navigator.popAndPushNamed(
         context,
-        '/admin',
+        Routes.adminDashboard,
       );
     });
   }
@@ -241,7 +242,7 @@ class _TableViewState extends State<TableView> {
                         });
                         Navigator.popAndPushNamed(
                           context,
-                          Routes.taskHome,
+                          Routes.adminDashboard,
                         );
                       },
                       style: blackButtonStyle,

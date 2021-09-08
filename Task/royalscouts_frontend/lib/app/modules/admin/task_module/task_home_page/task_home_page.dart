@@ -5,7 +5,9 @@ import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/modules/admin/task_module/task_home_page/widgets/table_view.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
 import 'package:royalscouts/app/shared/configs/dropdown_data.dart';
+import 'package:royalscouts/app/shared/configs/routes.dart';
 import 'package:royalscouts/app/shared/widgets/elements/dropdown_filter.dart';
+import 'package:royalscouts/app/shared/widgets/styles/buttons.dart';
 
 class TaskHomePage extends StatefulWidget {
   const TaskHomePage({Key? key}) : super(key: key);
@@ -102,12 +104,35 @@ class _TaskHomePageState extends State<TaskHomePage> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-          child: Text(
-            "Task Home",
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: Text(
+                "Task Home",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+              child: ElevatedButton(
+                style: primaryButtonStyle,
+                child: Text(
+                  'Generate Report',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.popAndPushNamed(
+                    context,
+                    Routes.taskReport,
+                  );
+                },
+              ),
+            )
+          ],
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15),

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:royalscouts/app/modules/admin/task_module/task_home_page/task_home_page.dart';
-import 'package:royalscouts/app/modules/public/events/events.dart';
+
 import 'app/modules/admin/admin_dashboard/admin_dashboard.dart';
 import 'app/modules/admin/task_module/crud_task/crud_task_page.dart';
 import 'app/modules/admin/task_module/task_evaluation/task_evaluation_page.dart';
 import 'app/modules/admin/task_module/task_feedback/task_feedback_page.dart';
+import 'app/modules/admin/task_module/task_home_page/task_home_page.dart';
+import 'app/modules/admin/task_module/task_report/app.dart';
 import 'app/modules/admin/task_module/task_review/task_review_page.dart';
 import 'app/modules/public/about/pages/about.dart';
 import 'app/modules/public/contact_us/pages/contact_us.dart';
+import 'app/modules/public/events/events.dart';
 import 'app/modules/public/gallery/gallery.dart';
 import 'app/modules/public/homepage/homepage.dart';
 import 'app/modules/public/news/pages/news.dart';
@@ -49,9 +51,8 @@ class MyApp extends StatelessWidget {
         Routes.taskReview: (context) => TaskReviewPage(),
         Routes.taskFeedback: (context) => TaskFeedbackPage(),
         Routes.taskEvaluation: (context) => TaskEvaluationPage(),
+        Routes.taskReport: (context) => TaskReport(),
       },
     );
   }
 }
-
-
