@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_web_data_table/web_data_table.dart';
 import 'package:royalscouts/app/core/models/task.dart';
@@ -5,9 +7,11 @@ import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/modules/admin/task_module/task_home_page/widgets/table_view.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
 import 'package:royalscouts/app/shared/configs/dropdown_data.dart';
-import 'package:royalscouts/app/shared/configs/routes.dart';
 import 'package:royalscouts/app/shared/widgets/elements/dropdown_filter.dart';
 import 'package:royalscouts/app/shared/widgets/styles/buttons.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:printing/printing.dart';
 
 class TaskHomePage extends StatefulWidget {
   const TaskHomePage({Key? key}) : super(key: key);
@@ -100,6 +104,98 @@ class _TaskHomePageState extends State<TaskHomePage> {
     }
   }
 
+  getReportData() {
+    List<List<dynamic>> dataTable = [];
+
+    data.forEach((element) => {
+          dataTable.add([
+            element['id'],
+            element['createdBy'],
+            element['programmeType'],
+            element['difficulty'],
+            element['score']
+          ])
+        });
+
+    return dataTable;
+  }
+
+  Future<Uint8List> generateReport(PdfPageFormat pageFormat) async {
+    const tableHeaders = [
+      'Task Id',
+      'Created By',
+      'Programme Type',
+      'Difficulty',
+      'Score'
+    ];
+
+    // Create a PDF document.
+    final document = pw.Document();
+
+    // Data table
+    final table = pw.Table.fromTextArray(
+      border: null,
+      headers: tableHeaders,
+      data: List<List<dynamic>>.generate(
+        getReportData().length,
+        (index) => <dynamic>[
+          getReportData()[index][0],
+          getReportData()[index][1],
+          getReportData()[index][2],
+          getReportData()[index][3],
+          getReportData()[index][4],
+        ],
+      ),
+      headerStyle: pw.TextStyle(
+        color: PdfColors.white,
+        fontWeight: pw.FontWeight.bold,
+      ),
+      headerDecoration: pw.BoxDecoration(
+        color: PdfColors.black,
+      ),
+      rowDecoration: pw.BoxDecoration(
+        border: pw.Border(
+          bottom: pw.BorderSide(
+            color: PdfColors.black,
+            width: .5,
+          ),
+        ),
+      ),
+      cellAlignment: pw.Alignment.center,
+      cellAlignments: {0: pw.Alignment.center},
+    );
+
+    // Add page to the PDF
+    document.addPage(
+      pw.Page(
+        pageFormat: pageFormat,
+        theme: pw.ThemeData.withFont(
+          base: await PdfGoogleFonts.openSansRegular(),
+          bold: await PdfGoogleFonts.openSansBold(),
+        ),
+        build: (context) {
+          return pw.Column(
+            children: [
+              pw.Text(
+                'Task Report',
+                style: pw.TextStyle(
+                  color: PdfColors.black,
+                  fontSize: 30,
+                ),
+              ),
+              pw.Divider(thickness: 4),
+              pw.SizedBox(height: 10),
+              table,
+            ],
+          );
+        },
+      ),
+    );
+
+    // save PDF file
+    return document.save();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -125,9 +221,13 @@ class _TaskHomePageState extends State<TaskHomePage> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.popAndPushNamed(
-                    context,
-                    Routes.taskReport,
+                  Printing.layoutPdf(
+                    // [onLayout] will be called multiple times
+                    // when the user changes the printer or printer settings
+                    onLayout: (PdfPageFormat format) {
+                      // Any valid Pdf document can be returned here as a list of int
+                      return generateReport(format);
+                    },
                   );
                 },
               ),
