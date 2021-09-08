@@ -6,11 +6,14 @@ import 'package:intl/intl.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 import 'package:royalscouts/app/core/models/evaluation.dart';
+import 'package:royalscouts/app/core/models/task.dart';
 import 'package:royalscouts/app/core/services/evaluation_service.dart';
+import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/core/services/user_service.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_card.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_dialog.dart';
+import 'package:royalscouts/app/shared/widgets/elements/date_input_field.dart';
 import 'package:royalscouts/app/shared/widgets/elements/dropdown_field.dart';
 import 'package:royalscouts/app/shared/widgets/elements/label_field.dart';
 import 'package:royalscouts/app/shared/widgets/elements/text_input_field.dart';
@@ -25,6 +28,7 @@ class TaskEvaluationPage extends StatefulWidget {
 
 class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
   List<bool> isEmpty = [];
+  List<String> taskIds = [];
   final _evaluationFormKey = GlobalKey<FormState>();
 
   List<Evaluation> evaluations = [];
@@ -47,8 +51,13 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
         () => setState(() => showLoader = false),
       );
     });
-
+    getTasks();
     super.initState();
+  }
+
+  getTasks() async {
+    List<Task> tasks = await TaskService().getTasks();
+    tasks.forEach((task) => taskIds.add(task.id.toString()));
   }
 
   @override
@@ -131,31 +140,21 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
               ),
               LabelField(
                 labelText: "Start Date",
-                value: getDate(evaluations[index].startDate),
+                value: evaluations[index].startDate,
               ),
               LabelField(
                 labelText: "End Date",
-                value: getDate(evaluations[index].endDate),
+                value: evaluations[index].endDate,
               ),
               LabelField(
                 labelText: "Version",
-                value: evaluations[index].version.toString(),
-                maxLines: 3,
+                value: "v.${evaluations[index].version.toStringAsFixed(1)}",
               )
             ],
           ),
         ),
       ),
     );
-  }
-
-  String getDate(String dateTime) {
-    List<String> arr = dateTime.split("T");
-    return DateFormat("yyyy-MM-dd HH:mm:ss")
-        .parse("${arr[0]} ${arr[1]}", true)
-        .toLocal()
-        .toString()
-        .split(".")[0];
   }
 
   getEvaluations() async {
@@ -208,7 +207,8 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                               padding: const EdgeInsets.all(25),
                               child: Form(
                                 key: _evaluationFormKey,
-                                child: Column(
+                                child: ListView(
+                                  shrinkWrap: true,
                                   children: <Widget>[
                                     TextInputField(
                                       label: "Title",
@@ -216,14 +216,14 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                                     ),
                                     DropdownField(
                                       label: "Task Id",
-                                      contents: ["1", "2", "3"],
+                                      contents: taskIds,
                                       controller: _taskIdController,
                                     ),
-                                    TextInputField(
+                                    DateInputField(
                                       label: "Start Date",
                                       controller: _startDateController,
                                     ),
-                                    TextInputField(
+                                    DateInputField(
                                       label: "End Date",
                                       controller: _endDateController,
                                     ),
@@ -234,7 +234,7 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                                       disable: true,
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 30.0),
+                                      padding: const EdgeInsets.only(top: 30.0, left: 50, right: 50),
                                       child: ElevatedButton(
                                         style: primaryButtonStyle,
                                         onPressed: () async {
@@ -245,7 +245,8 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                                               'title': _titleController.text,
                                               'startDate':
                                                   _startDateController.text,
-                                              'endDate': _endDateController.text,
+                                              'endDate':
+                                                  _endDateController.text,
                                               'createdBy':
                                                   UserService.currentUser.name,
                                             };
@@ -272,7 +273,7 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.all(25),
+          padding: const EdgeInsets.all(10),
           child: evaluations.length == 0 && showLoader
               ? Center(
                   child: Container(
@@ -298,26 +299,18 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                         ),
                       ),
                     )
-                  : ListView(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 200,
-                              childAspectRatio: 3 / 2,
-                              crossAxisSpacing: 20,
-                              mainAxisSpacing: 20,
-                            ),
-                            itemCount: evaluations.length,
-                            itemBuilder: (BuildContext ctx, index) {
-                              print(evaluations.length);
-                              return getCard(index);
-                            },
-                          ),
-                        ),
-                      ],
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        maxCrossAxisExtent: 400,
+                        crossAxisSpacing: 20,
+                        mainAxisSpacing: 20,
+                        childAspectRatio: 0.8
+                      ),
+                      itemCount: evaluations.length,
+                      itemBuilder: (BuildContext ctx, index) {
+                        return getCard(index);
+                      },
                     ),
         ),
       ],

@@ -1,0 +1,100 @@
+import 'package:flutter/material.dart';
+import 'package:royalscouts/app/shared/configs/custom_color.dart';
+
+class DateInputField extends StatefulWidget {
+  final String label;
+
+  final TextEditingController controller;
+
+  DateInputField({
+    required this.label,
+    required this.controller,
+  });
+
+  @override
+  _DateInputFieldState createState() => _DateInputFieldState();
+}
+
+class _DateInputFieldState extends State<DateInputField> {
+  bool isEmpty = false;
+
+  @override
+  void initState() {
+    // if (widget.disable) {
+    //   widget.controller.text = widget.content;
+    // }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Row(
+            children: <Widget>[
+              Container(
+                width: 90.0,
+                child: Text(
+                  "${widget.label}",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: CustomColor.primary),
+                ),
+              ),
+              SizedBox(
+                width: 40.0,
+              ),
+              Expanded(
+                child: Container(
+                  color: isEmpty ? Colors.white : Colors.blueGrey[50],
+                  child: TextFormField(
+                    controller: widget.controller,
+                    readOnly: true,
+                    onTap: () async {
+                      var selectedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2021),
+                          lastDate: DateTime(2030));
+                      if (selectedDate != null)
+                        widget.controller.text = selectedDate.toString().split(" ")[0];
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        setState(() {
+                          isEmpty = true;
+                        });
+                        return 'Please enter a ${widget.label.toLowerCase()}';
+                      }
+                    },
+                    style: TextStyle(
+                      fontSize: 15.0,
+                    ),
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(10.0),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.blueGrey[50] ?? Colors.blueGrey,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colors.blueGrey[50] ?? Colors.blueGrey,
+                        ),
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                      fillColor: Colors.blueGrey[50],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
