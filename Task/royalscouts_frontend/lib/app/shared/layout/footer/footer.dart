@@ -27,7 +27,7 @@ class Footer extends StatelessWidget {
     }
 
     return Container(
-      decoration: BoxDecoration(color: Colors.grey[900]),
+      decoration: BoxDecoration(color: Colors.blueGrey[900]),
       child: Column(
         children: [
           SizedBox(height: 50),
@@ -40,7 +40,7 @@ class Footer extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.fromLTRB(20, 40, 20, 20),
-            decoration: BoxDecoration(color: Colors.grey[900]),
+            decoration: BoxDecoration(color: Colors.blueGrey[900]),
             child: Row(
               children: [
                 ...footerList,

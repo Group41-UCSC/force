@@ -10,6 +10,7 @@ import 'package:royalscouts/app/core/models/user.dart';
 import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/core/services/user_service.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
+import 'package:royalscouts/app/shared/configs/routes.dart';
 import 'package:royalscouts/app/shared/widgets/styles/buttons.dart';
 
 class TableView extends StatefulWidget {
@@ -72,15 +73,16 @@ class _TableViewState extends State<TableView> {
             _selectedRowKeys.length == 1 &&
             !showButton
         ? Padding(
-            padding: const EdgeInsets.only(bottom: 15.0, right: 8.0, top: 10.0),
+            padding: const EdgeInsets.only(bottom: 15.0, right: 4.0, top: 10.0),
             child: SizedBox(
-              height: 35,
+              height: 32,
               child: ElevatedButton(
                 style: style,
                 child: Text(
                   title,
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 12
                   ),
                 ),
                 onPressed: () {
@@ -126,7 +128,7 @@ class _TableViewState extends State<TableView> {
       setState(() {});
       Navigator.popAndPushNamed(
         context,
-        '/admin',
+        Routes.adminDashboard,
       );
     });
   }
@@ -136,7 +138,7 @@ class _TableViewState extends State<TableView> {
     return SingleChildScrollView(
       child: widget.data.length == 0 && showLoader
           ? Container(
-              color: Colors.white,
+              color: Colors.transparent,
               width: 300.0,
               height: 300.0,
               child: SpinKitRing(
@@ -162,7 +164,7 @@ class _TableViewState extends State<TableView> {
                         title: 'Add New Task',
                         onClicked: () => Navigator.pushNamed(
                           context,
-                          '/admin/add-task',
+                          Routes.addTask,
                         ),
                         showButton: true,
                         style: primaryButtonStyle,
@@ -183,7 +185,7 @@ class _TableViewState extends State<TableView> {
                     title: 'Add New Task',
                     onClicked: () => Navigator.pushNamed(
                       context,
-                      '/admin/add-task',
+                      Routes.addTask,
                     ),
                     showButton: true,
                     style: primaryButtonStyle,
@@ -195,7 +197,7 @@ class _TableViewState extends State<TableView> {
                       title: 'Edit Task',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/edit-task',
+                        Routes.editTask,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -205,7 +207,7 @@ class _TableViewState extends State<TableView> {
                       title: 'View Task',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/view-task',
+                        Routes.viewTask,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -215,7 +217,7 @@ class _TableViewState extends State<TableView> {
                       title: 'Add Review',
                       onClicked: () => Navigator.pushNamed(
                         context,
-                        '/admin/task-review',
+                        Routes.taskReview,
                         arguments: editTaskObj,
                       ),
                       style: primaryButtonStyle,
@@ -224,7 +226,7 @@ class _TableViewState extends State<TableView> {
                     title: 'Provide Feedback',
                     onClicked: () => Navigator.pushNamed(
                       context,
-                      '/admin/task-feedback',
+                      Routes.taskFeedback,
                       arguments: editTaskObj,
                     ),
                     style: primaryButtonStyle,
@@ -240,7 +242,7 @@ class _TableViewState extends State<TableView> {
                         });
                         Navigator.popAndPushNamed(
                           context,
-                          '/admin',
+                          Routes.adminDashboard,
                         );
                       },
                       style: blackButtonStyle,
@@ -317,7 +319,7 @@ class _TableViewState extends State<TableView> {
                   },
                   primaryKeyName: 'id',
                 ),
-                horizontalMargin: 80,
+                horizontalMargin: 30,
                 onRowsPerPageChanged: (rowsPerPage) {
                   setState(() {
                     if (rowsPerPage != null) {

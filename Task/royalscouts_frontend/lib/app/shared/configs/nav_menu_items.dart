@@ -1,3 +1,5 @@
+import 'package:royalscouts/app/shared/configs/routes.dart';
+
 class NavMenuItem {
   String title;
   String routeName;
@@ -13,5 +15,5 @@ List<NavMenuItem> navMenuItems = [
   NavMenuItem(title: 'GALLERY', routeName: '/gallery'),
   NavMenuItem(title: 'OLD SCOUTS', routeName: '/oldscouts'),
   NavMenuItem(title: 'CONTACT US', routeName: '/contactus'),
-  NavMenuItem(title: 'ADMIN', routeName: '/admin'),
+  NavMenuItem(title: 'ADMIN', routeName: Routes.adminDashboard),
 ];

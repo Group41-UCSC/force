@@ -10,6 +10,7 @@ import 'package:royalscouts/app/core/services/instruction_service.dart';
 import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/core/services/user_service.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
+import 'package:royalscouts/app/shared/configs/routes.dart';
 import 'package:royalscouts/app/shared/widgets/animation/animation.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_card.dart';
 import 'package:royalscouts/app/shared/widgets/styles/buttons.dart';
@@ -97,7 +98,7 @@ class _InstructionsTabState extends State<InstructionsTab> {
         },
         child: Container(
           margin: const EdgeInsets.fromLTRB(18.0, 25.0, 18.0, 8.0),
-          color: isEmpty[index] ? Colors.white : Colors.blue[50],
+          color: isEmpty[index] ? Colors.white : Colors.blueGrey[50],
           child: TextFormField(
             controller: _controllers[index],
             validator: (value) {
@@ -116,18 +117,18 @@ class _InstructionsTabState extends State<InstructionsTab> {
               contentPadding: EdgeInsets.all(10.0),
               border: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.blue[50] ?? Colors.blue,
+                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                 ),
                 borderRadius: BorderRadius.circular(5.0),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: Colors.blue[50] ?? Colors.blue,
+                  color: Colors.blueGrey[50] ?? Colors.blueGrey,
                 ),
                 borderRadius: BorderRadius.circular(5.0),
               ),
               hintText: "Enter instruction for step ${index + 1}",
-              fillColor: Colors.blue[50],
+              fillColor: Colors.blueGrey[50],
             ),
           ),
         ),
@@ -266,7 +267,7 @@ class _InstructionsTabState extends State<InstructionsTab> {
 
                                     Navigator.pushNamedAndRemoveUntil(
                                       context,
-                                      '/admin',
+                                      Routes.adminDashboard,
                                       (route) => false,
                                     );
                                   } else {

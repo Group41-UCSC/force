@@ -1,26 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
 
-class NumberInputField extends StatefulWidget {
+class DateInputField extends StatefulWidget {
   final String label;
-  final String content;
-  final bool disable;
+
   final TextEditingController controller;
 
-  NumberInputField({
+  DateInputField({
     required this.label,
-    required this.content,
     required this.controller,
-    this.disable = false,
   });
 
   @override
-  _NumberInputFieldState createState() => _NumberInputFieldState();
+  _DateInputFieldState createState() => _DateInputFieldState();
 }
 
-class _NumberInputFieldState extends State<NumberInputField> {
+class _DateInputFieldState extends State<DateInputField> {
   bool isEmpty = false;
+
+  @override
+  void initState() {
+    // if (widget.disable) {
+    //   widget.controller.text = widget.content;
+    // }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +49,17 @@ class _NumberInputFieldState extends State<NumberInputField> {
                 child: Container(
                   color: isEmpty ? Colors.white : Colors.blueGrey[50],
                   child: TextFormField(
-                    readOnly: widget.disable,
                     controller: widget.controller,
-                    keyboardType: TextInputType.number,
-                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                    readOnly: true,
+                    onTap: () async {
+                      var selectedDate = await showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2021),
+                          lastDate: DateTime(2030));
+                      if (selectedDate != null)
+                        widget.controller.text = selectedDate.toString().split(" ")[0];
+                    },
                     validator: (value) {
                       if (value!.isEmpty) {
                         setState(() {
@@ -75,7 +86,6 @@ class _NumberInputFieldState extends State<NumberInputField> {
                         ),
                         borderRadius: BorderRadius.circular(5.0),
                       ),
-                      hintText: "${widget.content}",
                       fillColor: Colors.blueGrey[50],
                     ),
                   ),

@@ -175,7 +175,9 @@ class _TaskReviewPageState extends State<TaskReviewPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Task Review'),
+        elevation: 1,
       ),
+      backgroundColor: CustomColor.background,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(20),

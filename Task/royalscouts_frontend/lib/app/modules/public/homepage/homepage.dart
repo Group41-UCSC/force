@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               "We will endeavour to keep you updated here with the latest News related to RoyalScouts",
-              style: TextStyle(fontSize: 20, color: Colors.grey),
+              style: TextStyle(fontSize: 20, color: Colors.blueGrey),
             ),
           ),
           Container(

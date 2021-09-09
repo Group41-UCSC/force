@@ -6,7 +6,6 @@ class CustomCard extends StatelessWidget {
   final double height;
   final Widget child;
   final bool enableCloseButton;
-  final bool disable;
   final VoidCallback? onClosed;
 
   final bool enableEditButton;
@@ -21,7 +20,6 @@ class CustomCard extends StatelessWidget {
     this.onClosed,
     this.enableEditButton = false,
     this.onEdit,
-    this.disable = false,
   }) : super(key: key);
 
   @override
@@ -32,7 +30,7 @@ class CustomCard extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.0),
         ),
-        elevation: 5.0,
+        elevation: 1.5,
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -52,27 +50,27 @@ class CustomCard extends StatelessWidget {
                 ),
               ),
             ),
-            if (enableEditButton && !disable)
+            if (enableEditButton)
               Positioned(
                 top: 0,
                 right: 25,
                 child: IconButton(
                   icon: Icon(
                     Icons.edit,
-                    color: Colors.grey,
+                    color: Colors.blueGrey,
                     size: 15,
                   ),
                   onPressed: onEdit,
                 ),
               ),
-            if (enableCloseButton && !disable)
+            if (enableCloseButton)
               Positioned(
                 top: 0,
                 right: 0,
                 child: IconButton(
                   icon: Icon(
                     Icons.close,
-                    color: Colors.grey,
+                    color: Colors.blueGrey,
                     size: 15,
                   ),
                   onPressed: onClosed,

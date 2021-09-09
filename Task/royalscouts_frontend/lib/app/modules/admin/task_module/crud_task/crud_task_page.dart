@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:royalscouts/app/core/models/task.dart';
+import 'package:royalscouts/app/shared/configs/custom_color.dart';
 
 import 'instructions_tab.dart';
 import 'main_tab.dart';
@@ -47,8 +48,14 @@ class _CrudTaskPageState extends State<CrudTaskPage>
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text(isViewMode() ? 'View Task':  editTaskData.id != 0 ? 'Edit Task' : 'Add New Task'),
+          title: Text(isViewMode()
+              ? 'View Task'
+              : editTaskData.id != 0
+                  ? 'Edit Task'
+                  : 'Add New Task'),
+          elevation: 1,
         ),
+        backgroundColor: CustomColor.background,
         body: Column(
           children: [
             Container(

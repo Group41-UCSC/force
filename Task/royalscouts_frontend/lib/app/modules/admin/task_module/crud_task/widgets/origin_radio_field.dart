@@ -57,7 +57,7 @@ class _OriginRadioFieldState extends State<OriginRadioField> {
                 width: 30.0,
               ),
               CircleAvatar(
-                backgroundColor: Colors.blue[50],
+                backgroundColor: Colors.blueGrey[50],
                 child: Radio(
                   value: 1,
                   groupValue: id,
@@ -83,7 +83,7 @@ class _OriginRadioFieldState extends State<OriginRadioField> {
                 width: 30.0,
               ),
               CircleAvatar(
-                backgroundColor: Colors.blue[50],
+                backgroundColor: Colors.blueGrey[50],
                 child: Radio(
                   value: 2,
                   groupValue: id,

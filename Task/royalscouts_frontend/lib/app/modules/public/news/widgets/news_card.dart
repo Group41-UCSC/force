@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
 import 'package:royalscouts/app/modules/public/news/models/news_data.dart';
 import 'package:royalscouts/app/modules/public/news/pages/news_content.dart';
-import 'package:royalscouts/app/shared/widgets/nav_link.dart';
+import 'package:royalscouts/app/shared/widgets/elements/nav_link.dart';
 
 class NewsCard extends StatefulWidget {
   final NewsData newsData;

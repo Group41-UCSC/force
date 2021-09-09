@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:royalscouts/app/shared/layout/app_layout.dart';
 import 'package:royalscouts/app/shared/widgets/banner/banner_01.dart';
-import 'package:royalscouts/app/shared/widgets/nav_link.dart';
+import 'package:royalscouts/app/shared/widgets/elements/nav_link.dart';
 
 class Events extends StatefulWidget {
   Events({Key? key}) : super(key: key);
@@ -32,7 +32,7 @@ class _EventsState extends State<Events> {
             Container(
                 height: 100,
                 width: 600,
-                color: Colors.grey[200],
+                color: Colors.blueGrey[200],
                 padding: const EdgeInsets.all(15),
                 alignment: Alignment.center,
                 child: Row(
