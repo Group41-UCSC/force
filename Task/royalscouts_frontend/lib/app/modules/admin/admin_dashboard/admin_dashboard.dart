@@ -12,13 +12,12 @@ class AdminDashboard extends StatefulWidget {
 }
 
 class _AdminDashboardState extends State<AdminDashboard> {
+  int selectedIndex = 0;
+
   List<Widget> views = const [
     TaskHomePage(),
     TaskEvaluationPage(),
   ];
-
-  /// The currently selected index of the bar
-  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
       body: Row(
         children: [
           SideNavigationBar(
-            selectedIndex: 0,
+            selectedIndex: selectedIndex,
             expandable: true,
             color: CustomColor.primary,
             selectedItemColor: Colors.white,

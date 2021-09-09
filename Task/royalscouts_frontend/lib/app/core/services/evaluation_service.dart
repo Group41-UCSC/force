@@ -19,7 +19,7 @@ class EvaluationService {
     }
   }
 
-  Future<Evaluation> addEvaluation(Map evaluationData) async {
+  Future<void> addEvaluation(Map evaluationData) async {
     final Response response = await post(
       Uri.parse(apiUrl),
       headers: <String, String>{
@@ -28,13 +28,13 @@ class EvaluationService {
       body: jsonEncode(evaluationData),
     );
     if (response.statusCode == 201) {
-      return Evaluation.fromJson(json.decode(response.body));
+      print("Evaluation created");
     } else {
       throw Exception('Failed to post a evaluation');
     }
   }
 
-  Future<Evaluation> updateEvaluation(num id, Map evaluationData) async {
+  Future<void> updateEvaluation(num id, Map evaluationData) async {
     final Response response = await put(
       Uri.parse('$apiUrl/$id'),
       headers: <String, String>{
@@ -43,7 +43,7 @@ class EvaluationService {
       body: jsonEncode(evaluationData),
     );
     if (response.statusCode == 200) {
-      return Evaluation.fromJson(json.decode(response.body));
+      print("Evaluation updated");
     } else {
       throw Exception('Failed to update a evaluation');
     }

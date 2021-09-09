@@ -11,6 +11,7 @@ import 'package:royalscouts/app/core/services/evaluation_service.dart';
 import 'package:royalscouts/app/core/services/task_service.dart';
 import 'package:royalscouts/app/core/services/user_service.dart';
 import 'package:royalscouts/app/shared/configs/custom_color.dart';
+import 'package:royalscouts/app/shared/widgets/animation/animation.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_card.dart';
 import 'package:royalscouts/app/shared/widgets/elements/custom_dialog.dart';
 import 'package:royalscouts/app/shared/widgets/elements/date_input_field.dart';
@@ -91,6 +92,10 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
       child: CustomCard(
         title: 'Evaluation ${evaluations[index].id}',
         height: 550,
+        enableEditButton: true,
+        onEdit: () {
+          showAddDialog(evaluations[index], isEditMode: true);
+        },
         enableCloseButton: true,
         onClosed: () {
           Alert(
@@ -158,17 +163,124 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
   }
 
   getEvaluations() async {
+    evaluations.clear();
     var newEvaluations = await EvaluationService().getEvaluations();
     setState(() => evaluations = newEvaluations);
   }
 
+  showAddDialog(Evaluation taskEvaluation, {bool isEditMode = false}) {
+    List<String> editTaskIds = [...taskIds];
+    if (isEditMode) {
+      _titleController.text = taskEvaluation.title;
+      _taskIdController.text = taskEvaluation.taskId.toString();
+      _startDateController.text = taskEvaluation.startDate;
+      _endDateController.text = taskEvaluation.endDate;
+      _versionController.text = taskEvaluation.version.toString();
+      editTaskIds.insert(0, taskEvaluation.taskId.toString());
+    }
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return CustomDialog(
+          child: CustomCard(
+            title: isEditMode ? 'Edit Evaluation' : 'Add Evaluation',
+            height: 420,
+            enableCloseButton: true,
+            onClosed: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(25),
+              child: Form(
+                key: _evaluationFormKey,
+                child: ListView(
+                  shrinkWrap: true,
+                  children: <Widget>[
+                    TextInputField(
+                      label: "Title",
+                      controller: _titleController,
+                    ),
+                    DropdownField(
+                      label: "Task Id",
+                      contents:
+                          isEditMode ? editTaskIds.toSet().toList() : taskIds,
+                      controller: _taskIdController,
+                    ),
+                    DateInputField(
+                      label: "Start Date",
+                      controller: _startDateController,
+                    ),
+                    DateInputField(
+                      label: "End Date",
+                      controller: _endDateController,
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(top: 30.0, left: 50, right: 50),
+                      child: ElevatedButton(
+                        style: primaryButtonStyle,
+                        onPressed: () async {
+                          if (DateTime.parse(_endDateController.text).isBefore(
+                              DateTime.parse(_startDateController.text))) {
+                            Alert(
+                                context: context,
+                                type: AlertType.info,
+                                title: "Invalid Date Alert",
+                                desc: "Please enter a valid date range",
+                                alertAnimation: fadeAlertAnimation,
+                                buttons: [
+                                  DialogButton(
+                                    child: Text(
+                                      "OK",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20),
+                                    ),
+                                    onPressed: () =>
+                                        Navigator.pop(context),
+                                    color: CustomColor.primary,
+                                  ),
+                                ]).show();
+                          } else {
+                            if (_evaluationFormKey.currentState!.validate()) {
+                              Map<String, dynamic> evaluation = {
+                                'taskId': _taskIdController.text,
+                                'title': _titleController.text,
+                                'startDate': _startDateController.text,
+                                'endDate': _endDateController.text,
+                                'createdBy': isEditMode
+                                    ? taskEvaluation.createdBy
+                                    : UserService.currentUser.name,
+                              };
+
+                              isEditMode
+                                  ? await EvaluationService().updateEvaluation(
+                                      taskEvaluation.id, evaluation)
+                                  : await EvaluationService()
+                                      .addEvaluation(evaluation);
+                              updateForm();
+                              Navigator.pop(context);
+                            }
+                          }
+                        },
+                        child: Text(isEditMode
+                            ? 'Update Evaluation'
+                            : 'Submit New Evaluation'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    // final args = ModalRoute.of(context)!.settings.arguments;
-    // if (args != null) {
-    //   editTaskData = args as Task;
-    // }
-
     return ListView(
       children: [
         Row(
@@ -192,81 +304,17 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                   ),
                 ),
                 onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return CustomDialog(
-                          child: CustomCard(
-                            title: 'Add Evaluation',
-                            height: 480,
-                            enableCloseButton: true,
-                            onClosed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(25),
-                              child: Form(
-                                key: _evaluationFormKey,
-                                child: ListView(
-                                  shrinkWrap: true,
-                                  children: <Widget>[
-                                    TextInputField(
-                                      label: "Title",
-                                      controller: _titleController,
-                                    ),
-                                    DropdownField(
-                                      label: "Task Id",
-                                      contents: taskIds,
-                                      controller: _taskIdController,
-                                    ),
-                                    DateInputField(
-                                      label: "Start Date",
-                                      controller: _startDateController,
-                                    ),
-                                    DateInputField(
-                                      label: "End Date",
-                                      controller: _endDateController,
-                                    ),
-                                    TextInputField(
-                                      label: "Version",
-                                      controller: _versionController,
-                                      content: "v1.0",
-                                      disable: true,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 30.0, left: 50, right: 50),
-                                      child: ElevatedButton(
-                                        style: primaryButtonStyle,
-                                        onPressed: () async {
-                                          if (_evaluationFormKey.currentState!
-                                              .validate()) {
-                                            Map<String, dynamic> evaluation = {
-                                              'taskId': _taskIdController.text,
-                                              'title': _titleController.text,
-                                              'startDate':
-                                                  _startDateController.text,
-                                              'endDate':
-                                                  _endDateController.text,
-                                              'createdBy':
-                                                  UserService.currentUser.name,
-                                            };
-
-                                            await EvaluationService()
-                                                .addEvaluation(evaluation);
-                                            Navigator.pop(context);
-                                            updateForm();
-                                          }
-                                        },
-                                        child: Text('Submit New Evaluation'),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      });
+                  showAddDialog(
+                    Evaluation(
+                      id: 0,
+                      taskId: 0,
+                      title: "",
+                      startDate: "",
+                      endDate: "",
+                      version: 1.0,
+                      createdBy: UserService.currentUser.name,
+                    ),
+                  );
                 },
               ),
             )
@@ -305,7 +353,7 @@ class _TaskEvaluationPageState extends State<TaskEvaluationPage> {
                         maxCrossAxisExtent: 400,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 20,
-                        childAspectRatio: 0.8
+                        childAspectRatio: 0.8,
                       ),
                       itemCount: evaluations.length,
                       itemBuilder: (BuildContext ctx, index) {
