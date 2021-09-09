@@ -20,10 +20,10 @@ public class InventoryController {
         return service.listAll();
     }
 
-    @GetMapping("/view-inventory/{id}")
-    public ResponseEntity<Inventory> get(@PathVariable Integer id){
+    @GetMapping("/view-inventory/{inventory_id}")
+    public ResponseEntity<Inventory> get(@PathVariable Integer inventory_id){
         try {
-            Inventory inventory = service.get(id);
+            Inventory inventory = service.get(inventory_id);
             return new ResponseEntity<Inventory>(inventory, HttpStatus.OK);
         } catch (NoSuchElementException e){
             return new ResponseEntity<Inventory>(HttpStatus.NOT_FOUND);
@@ -35,11 +35,11 @@ public class InventoryController {
         service.save(inventory);
     }
 
-   @PutMapping("/update-inventory/{id}")
+   @PutMapping("/update-inventory/{inventory_id}")
    public ResponseEntity<?> update(@RequestBody Inventory inventory,
-                      @PathVariable Integer id){
+                      @PathVariable Integer inventory_id){
         try {
-            Inventory existInventory = service.get(id);
+            Inventory existInventory = service.get(inventory_id);
             existInventory.setCategory(inventory.getCategory());
             existInventory.setDescription(inventory.getDescription());
             service.save(existInventory);
@@ -49,8 +49,8 @@ public class InventoryController {
         }
    }
 
-   @DeleteMapping("/delete-inventory/{id}")
-    public void delete(@PathVariable Integer id){
-        service.delete(id);
+   @DeleteMapping("/delete-inventory/{inventory_id}")
+    public void delete(@PathVariable Integer inventory_id){
+        service.delete(inventory_id);
    }
 }
