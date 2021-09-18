@@ -40,26 +40,8 @@ class MyApp extends StatelessWidget {
         '/gallery': (context) => Gallery(),
         '/contactus': (context) => ContactUs(),
         '/oldscouts': (context) => OldScouts(),
-        '/events': (context) => Events(),
-        '/login': (context) => Login()
+        '/events': (context) => Events()
       },
-    );
-  }
-}
-
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Force',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xE5E5E5FF),
-        primarySwatch: Palette.kToDark,
-      ),
-      // home: MyHomePage(title: 'Force'),
-      home: MyHomePage(title: 'Force'),
     );
   }
 }

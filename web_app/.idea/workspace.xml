@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe4348b2-769e-448f-9097-9a2a7c47958d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_frontend/lib/app/core/services/user_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_frontend/lib/app/core/services/user_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_frontend/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/force-main/Task/royalscouts_frontend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../force" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -53,25 +54,30 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="420" y="91" key="FileChooserDialogImpl" timestamp="1630678493793">
-      <screen x="0" y="0" width="1280" height="672" />
+    <state x="448" y="98" key="FileChooserDialogImpl" timestamp="1631953745855">
+      <screen x="0" y="0" width="1366" height="720" />
     </state>
     <state x="420" y="91" key="FileChooserDialogImpl/0.0.1280.672/-1024.0.1024.768@0.0.1280.672" timestamp="1630678493793" />
-    <state width="1237" height="160" key="GridCell.Tab.0.bottom" timestamp="1630678498600">
-      <screen x="0" y="0" width="1280" height="672" />
+    <state x="448" y="98" key="FileChooserDialogImpl/0.0.1366.720@0.0.1366.720" timestamp="1631953745855" />
+    <state width="1323" height="175" key="GridCell.Tab.0.bottom" timestamp="1631953747764">
+      <screen x="0" y="0" width="1366" height="720" />
     </state>
     <state width="1237" height="160" key="GridCell.Tab.0.bottom/0.0.1280.672/-1024.0.1024.768@0.0.1280.672" timestamp="1630678498600" />
-    <state width="1237" height="160" key="GridCell.Tab.0.center" timestamp="1630678498600">
-      <screen x="0" y="0" width="1280" height="672" />
+    <state width="1323" height="175" key="GridCell.Tab.0.bottom/0.0.1366.720@0.0.1366.720" timestamp="1631953747764" />
+    <state width="1323" height="175" key="GridCell.Tab.0.center" timestamp="1631953747764">
+      <screen x="0" y="0" width="1366" height="720" />
     </state>
     <state width="1237" height="160" key="GridCell.Tab.0.center/0.0.1280.672/-1024.0.1024.768@0.0.1280.672" timestamp="1630678498600" />
-    <state width="1237" height="160" key="GridCell.Tab.0.left" timestamp="1630678498600">
-      <screen x="0" y="0" width="1280" height="672" />
+    <state width="1323" height="175" key="GridCell.Tab.0.center/0.0.1366.720@0.0.1366.720" timestamp="1631953747764" />
+    <state width="1323" height="175" key="GridCell.Tab.0.left" timestamp="1631953747764">
+      <screen x="0" y="0" width="1366" height="720" />
     </state>
     <state width="1237" height="160" key="GridCell.Tab.0.left/0.0.1280.672/-1024.0.1024.768@0.0.1280.672" timestamp="1630678498600" />
-    <state width="1237" height="160" key="GridCell.Tab.0.right" timestamp="1630678498600">
-      <screen x="0" y="0" width="1280" height="672" />
+    <state width="1323" height="175" key="GridCell.Tab.0.left/0.0.1366.720@0.0.1366.720" timestamp="1631953747764" />
+    <state width="1323" height="175" key="GridCell.Tab.0.right" timestamp="1631953747764">
+      <screen x="0" y="0" width="1366" height="720" />
     </state>
     <state width="1237" height="160" key="GridCell.Tab.0.right/0.0.1280.672/-1024.0.1024.768@0.0.1280.672" timestamp="1630678498600" />
+    <state width="1323" height="175" key="GridCell.Tab.0.right/0.0.1366.720@0.0.1366.720" timestamp="1631953747764" />
   </component>
 </project>

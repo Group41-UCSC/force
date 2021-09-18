@@ -22,16 +22,10 @@ public class Item {
     public Item() {
     }
 
-    public Item(Integer itemId, String itemName, String itemSource, Integer inventoryId, Integer itemQuantity, Float itemLifespan, Float itemPrice, String itemBuild, String itemStatus, String itemDescription) {
-        this.itemId = itemId;
+    public Item(String itemName, Integer inventoryId, Integer itemQuantity, String itemDescription) {
         this.itemName = itemName;
-        this.itemSource = itemSource;
         this.inventoryId = inventoryId;
         this.itemQuantity = itemQuantity;
-        this.itemLifespan = itemLifespan;
-        this.itemPrice = itemPrice;
-        this.itemBuild = itemBuild;
-        this.itemStatus = itemStatus;
         this.itemDescription = itemDescription;
     }
 

@@ -3,8 +3,96 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e52d38d4-3365-4e59-82ff-b3c45890a651" name="Default Changelist" comment="" />
+    <list default="true" id="e52d38d4-3365-4e59-82ff-b3c45890a651" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_frontend/lib/app/core/services/user_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_frontend/lib/app/core/services/user_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task/royalscouts_frontend/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Task/royalscouts_frontend/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/NOTICES" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/app.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/config/palette.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/constants/controllers.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/constants/style.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/controllers/menu_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/controllers/navigation_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/helpers/local_navigator.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/helpers/reponsiveness.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/layout.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/login.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/404/error.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/authentication/authentication.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/badge_works/badge_works.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/councils/councils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/dashboard.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/available_drivers_table.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/bar_chart.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/info_card.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/info_card_small.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/overview_cards_large.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/overview_cards_medium.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/overview_cards_small.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/revenue_info.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/revenue_section_large.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/dashboard/widgets/revenue_section_small.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/events/events.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/events/widgets/clients_table.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/help/help.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/help/widgets/clients_table.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/notifications/notifications.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/progress_card/progress_card.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/progress_card/widgets/drivers_table.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/pages/users/users.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/routing/router.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/routing/routes.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/custom_text.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/horizontal_menu_item.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/large_screen.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/side_menu.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/side_menu_item.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/top_nav.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/login/widgets/vertical_menu_item.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/dashboard/dashboard.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/dashboard/navbar/navbar.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/home/home.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/home/view/home_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/home/view/view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/home/widgets/widgets.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/login/home.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/login/view/login.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/login/view/view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/forceapp/pages/login/widgets/widgets.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_app/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/../web_app/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_app/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/../web_app/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web_app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../web_app/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/../web_app/.packages" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +113,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../web_app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -45,6 +133,17 @@
       <updated>1628848911254</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="420" y="91" key="FileChooserDialogImpl" timestamp="1629293022596">
