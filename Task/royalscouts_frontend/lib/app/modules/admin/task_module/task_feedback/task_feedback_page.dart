@@ -229,7 +229,7 @@ class _TaskFeedbackPageState extends State<TaskFeedbackPage> {
     var newFeedbacks =
         await FeedbackService().getFeedbacksByTaskId(editTaskData.id);
 
-    var filteredFeedbacks = newFeedbacks.where((i) => !i.isChecked).toList();
+    var filteredFeedbacks = newFeedbacks.where((i) => i.isChecked).toList();
 
     setState(() {
       feedbacks = isLeader ? newFeedbacks : filteredFeedbacks;
@@ -303,59 +303,32 @@ class _TaskFeedbackPageState extends State<TaskFeedbackPage> {
                                       ],
                                     )
                                   : isLeader
-                                      ? ListView(
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  top: 10.0, right: 5.0),
-                                              child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.end,
-                                                children: [
-                                                  ElevatedButton(
-                                                    style: primaryButtonStyle,
-                                                    onPressed: () {
-                                                      for (var feedback
-                                                          in feedbacks) {
-                                                        FeedbackService()
-                                                            .updateFeedbackVisibility(
-                                                                feedback.id,
-                                                                feedback
-                                                                    .isChecked);
-                                                      }
-                                                      updateForm();
-                                                    },
-                                                    child: Text('Make Visible'),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                            ListView.builder(
-                                              shrinkWrap: true,
-                                              itemCount: feedbacks.length,
-                                              padding: const EdgeInsets.only(
-                                                  top: 10.0),
-                                              itemBuilder: (context, index) {
-                                                return CheckboxListTile(
-                                                  title: getLeaderCard(index),
-                                                  activeColor:
-                                                      CustomColor.primary,
-                                                  autofocus: false,
-                                                  controlAffinity:
-                                                      ListTileControlAffinity
-                                                          .leading,
-                                                  value: feedbacks[index]
-                                                      .isChecked,
-                                                  onChanged: (val) {
-                                                    setState(() {
-                                                      feedbacks[index]
-                                                          .isChecked = val!;
-                                                    });
-                                                  },
-                                                );
+                                      ? ListView.builder(
+                                          shrinkWrap: true,
+                                          itemCount: feedbacks.length,
+                                          padding:
+                                              const EdgeInsets.only(top: 10.0),
+                                          itemBuilder: (context, index) {
+                                            return CheckboxListTile(
+                                              title: getLeaderCard(index),
+                                              activeColor: CustomColor.primary,
+                                              autofocus: false,
+                                              controlAffinity:
+                                                  ListTileControlAffinity
+                                                      .leading,
+                                              value: feedbacks[index].isChecked,
+                                              onChanged: (val) {
+                                                FeedbackService()
+                                                    .updateFeedbackVisibility(
+                                                        feedbacks[index].id,
+                                                        val!);
+                                                setState(() {
+                                                  feedbacks[index].isChecked =
+                                                      val;
+                                                });
                                               },
-                                            ),
-                                          ],
+                                            );
+                                          },
                                         )
                                       : ListView.builder(
                                           shrinkWrap: true,
@@ -415,6 +388,28 @@ class _TaskFeedbackPageState extends State<TaskFeedbackPage> {
                                   };
 
                                   await FeedbackService().addFeedback(feedback);
+
+                                  Alert(
+                                    context: context,
+                                    type: AlertType.warning,
+                                    title: "Feedback Alert",
+                                    desc: "Feedback has been added to Leader's approval list",
+                                    buttons: [
+                                      DialogButton(
+                                        child: RoundedLoadingButton(
+                                          color: CustomColor.accent,
+                                          successColor: CustomColor.accent,
+                                          width: 100,
+                                          child: Text('OK', style: TextStyle(color: Colors.white)),
+                                          controller: _btnController2,
+                                          onPressed: () => Navigator.pop(context),
+                                        ),
+                                        onPressed: () {},
+                                        color: Colors.transparent,
+                                      ),
+                                    ],
+                                  ).show();
+
                                   updateForm();
                                 }
                               },
@@ -438,6 +433,7 @@ class _TaskFeedbackPageState extends State<TaskFeedbackPage> {
     _ratingController.clear();
     _contentController.clear();
     getFeedbacks();
+    setState(() {});
     setState(() {});
   }
 }
