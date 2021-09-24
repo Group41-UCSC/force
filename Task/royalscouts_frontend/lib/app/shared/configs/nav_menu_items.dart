@@ -15,5 +15,5 @@ List<NavMenuItem> navMenuItems = [
   NavMenuItem(title: 'GALLERY', routeName: '/gallery'),
   NavMenuItem(title: 'OLD SCOUTS', routeName: '/oldscouts'),
   NavMenuItem(title: 'CONTACT US', routeName: '/contactus'),
-  NavMenuItem(title: 'ADMIN', routeName: Routes.adminDashboard),
+  NavMenuItem(title: 'LOGIN', routeName: Routes.adminDashboard),
 ];

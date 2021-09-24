@@ -7,4 +7,5 @@ class CustomColor {
   static Color primary = Color(0xff262626);
   static Color accent = Color(0xffc0c0c0);
   static Color background = Color(0xfff9f9f9);
+  static Color appBar = Color(0xff002984);
 }

@@ -16,15 +16,64 @@ class _AdminDashboardState extends State<AdminDashboard> {
 
   List<Widget> views = const [
     TaskHomePage(),
+    TaskHomePage(),
+    TaskHomePage(),
+    TaskHomePage(),
     TaskEvaluationPage(),
+    TaskHomePage(),
+    TaskHomePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Admin Dashboard'),
+        title: const Text('Tasks'),
+        backgroundColor: CustomColor.appBar,
         elevation: 0,
+        actions: [
+          Container(
+            width: 72,
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.notifications),
+                  ],
+                ),
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.red),
+                    alignment: Alignment.center,
+                    child: Text('4'),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Container(
+            width: 72,
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.person),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       backgroundColor: CustomColor.background,
       body: Row(
@@ -32,17 +81,34 @@ class _AdminDashboardState extends State<AdminDashboard> {
           SideNavigationBar(
             selectedIndex: selectedIndex,
             expandable: true,
-            color: CustomColor.primary,
-            selectedItemColor: Colors.white,
+            color: Colors.white,
+            selectedItemColor: Colors.black,
             items: const [
               SideNavigationBarItem(
                 icon: Icons.dashboard,
-                label: 'Task Home',
+                label: 'Dashboard',
               ),
               SideNavigationBarItem(
-                icon: Icons.event_available_sharp,
-                label: 'Task Evaluation',
+                icon: Icons.shopping_cart,
+                label: 'Users',
               ),
+              SideNavigationBarItem(
+                icon: Icons.people,
+                label: 'Events',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.bar_chart,
+                label: 'Tasks',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.bar_chart,
+                label: 'Tasks Evaluations',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.layers,
+                label: 'Inventory',
+              ),
+              SideNavigationBarItem(icon: Icons.layers, label: 'Batch Work'),
             ],
             onTap: (index) {
               setState(() {
@@ -54,6 +120,7 @@ class _AdminDashboardState extends State<AdminDashboard> {
             child: Padding(
               padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
               child: views.elementAt(selectedIndex),
+              // child: TaskHomePage(),
             ),
           ),
         ],
